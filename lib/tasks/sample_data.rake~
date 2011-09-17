@@ -1,0 +1,26 @@
+require 'faker'
+
+namespace :db do
+  desc "Fill database with sample data"
+  task :populate => :environment do
+    Rake::Task['db:reset'].invoke
+
+    2.times do |n|
+      
+
+      directorate = (0..2).map{65.+(rand(25)).chr}.join
+      section     = directorate + '-' + (0..2).map{65.+(rand(25)).chr}.join
+
+
+
+      Person.create! ( :first   => Faker::Name.first_name,
+                       :last    => Faker::Name.last_name,
+                       :section => section,
+                       :role    => Faker::Company.catch_phrase )
+    end
+  end
+end
+
+
+
+                       

@@ -1,6 +1,8 @@
 Tom::Application.routes.draw do
 
 
+  get "pages/tables"
+
   resources :stamps
 
   resources :entities
