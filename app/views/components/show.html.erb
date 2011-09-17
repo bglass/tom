@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @component.title %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @component.category_id %>
+</p>
+
+<p>
+  <b>Abstract:</b>
+  <%= @component.abstract %>
+</p>
+
+<p>
+  <b>Activity:</b>
+  <%= @component.activity_id %>
+</p>
+
+<p>
+  <b>Sizex:</b>
+  <%= @component.sizex %>
+</p>
+
+<p>
+  <b>Sizey:</b>
+  <%= @component.sizey %>
+</p>
+
+<p>
+  <b>Technology:</b>
+  <%= @component.technology_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @component.status %>
+</p>
+
+<p>
+  <b>Qlevel:</b>
+  <%= @component.qlevel %>
+</p>
+
+
+<%= link_to 'Edit', edit_component_path(@component) %> |
+<%= link_to 'Back', components_path %>

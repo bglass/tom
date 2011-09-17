@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @foundry.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @foundry.description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @foundry.location %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @foundry.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_foundry_path(@foundry) %> |
+<%= link_to 'Back', foundries_path %>

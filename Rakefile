@@ -5,3 +5,4 @@
 require File.expand_path('../config/application', __FILE__)
 
 Tom::Application.load_tasks
+#require 'rake'

@@ -1,0 +1,27 @@
+<h1>Listing stamps</h1>
+
+<table>
+  <tr>
+    <th>Planned</th>
+    <th>Estimated</th>
+    <th>Actual</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stamps.each do |stamp| %>
+  <tr>
+    <td><%= stamp.planned %></td>
+    <td><%= stamp.estimated %></td>
+    <td><%= stamp.actual %></td>
+    <td><%= link_to 'Show', stamp %></td>
+    <td><%= link_to 'Edit', edit_stamp_path(stamp) %></td>
+    <td><%= link_to 'Destroy', stamp, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stamp', new_stamp_path %>

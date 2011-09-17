@@ -1,0 +1,31 @@
+<h1>Listing activities</h1>
+
+<table>
+  <tr>
+    <th>Nickname</th>
+    <th>Contract</th>
+    <th>Title</th>
+    <th>Funding</th>
+    <th>Funding amount</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+
+<% unless @activities.empty? %>
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= link_to activity.nickname, activity %></td>
+      <td><%= activity.contract %></td>
+      <td><%= activity.title %></td>
+      <td><%= activity.funding_id %></td>
+      <td><%= activity.funding_amount %></td>
+      <td><%= activity.startdate_id %></td>
+      <td><%= activity.enddate_id %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Activity', new_activity_path %>

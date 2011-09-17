@@ -1,0 +1,29 @@
+<%= form_for(@stamp) do |f| %>
+  <% if @stamp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stamp.errors.count, "error") %> prohibited this stamp from being saved:</h2>
+
+      <ul>
+      <% @stamp.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :planned %><br />
+    <%= f.date_select :planned %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated %><br />
+    <%= f.date_select :estimated %>
+  </div>
+  <div class="field">
+    <%= f.label :actual %><br />
+    <%= f.date_select :actual %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

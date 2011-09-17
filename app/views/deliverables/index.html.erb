@@ -1,0 +1,33 @@
+<h1>Listing deliverables</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Number</th>
+    <th>Activity</th>
+    <th>Milestone</th>
+    <th>Status</th>
+    <th>Accepted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @deliverables.each do |deliverable| %>
+  <tr>
+    <td><%= deliverable.title %></td>
+    <td><%= deliverable.number %></td>
+    <td><%= deliverable.activity_id %></td>
+    <td><%= deliverable.milestone_id %></td>
+    <td><%= deliverable.status %></td>
+    <td><%= deliverable.accepted %></td>
+    <td><%= link_to 'Show', deliverable %></td>
+    <td><%= link_to 'Edit', edit_deliverable_path(deliverable) %></td>
+    <td><%= link_to 'Destroy', deliverable, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Deliverable', new_deliverable_path %>

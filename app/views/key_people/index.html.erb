@@ -1,0 +1,27 @@
+<h1>Listing key_people</h1>
+
+<table>
+  <tr>
+    <th>Activity</th>
+    <th>Person</th>
+    <th>Role</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @key_people.each do |key_person| %>
+  <tr>
+    <td><%= key_person.activity_id %></td>
+    <td><%= key_person.person_id %></td>
+    <td><%= key_person.role %></td>
+    <td><%= link_to 'Show', key_person %></td>
+    <td><%= link_to 'Edit', edit_key_person_path(key_person) %></td>
+    <td><%= link_to 'Destroy', key_person, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Key person', new_key_person_path %>

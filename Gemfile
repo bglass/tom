@@ -34,3 +34,11 @@ end
 
 gem 'execjs'
 gem 'therubyracer'
+
+group :development do
+  gem 'rspec-rails'
+  gem 'annotate', '2.4.0'
+  gem 'faker'
+  gem 'lorem'
+
+end

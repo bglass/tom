@@ -1,4 +1,48 @@
 Tom::Application.routes.draw do
+
+
+  resources :stamps
+
+  resources :entities
+
+  resources :foundries
+
+  resources :technologies
+
+  resources :categories
+
+  resources :components
+
+  resources :people
+
+  resources :fundings
+
+  resources :projects
+
+  resources :references
+
+  resources :comments
+
+  resources :contractors
+
+  resources :payments
+
+  resources :milestones
+
+  resources :meetings
+
+  resources :key_people
+
+  resources :deliverables
+
+  get "deliverables/new"
+
+  get "key_persons/new"
+
+  get "pages/about"
+
+  resources :activities, :key_people, :deliverables
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

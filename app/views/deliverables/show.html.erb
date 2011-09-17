@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @deliverable.title %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%= @deliverable.number %>
+</p>
+
+<p>
+  <b>Activity:</b>
+  <%= @deliverable.activity_id %>
+</p>
+
+<p>
+  <b>Milestone:</b>
+  <%= @deliverable.milestone_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @deliverable.status %>
+</p>
+
+<p>
+  <b>Accepted:</b>
+  <%= @deliverable.accepted %>
+</p>
+
+
+<%= link_to 'Edit', edit_deliverable_path(@deliverable) %> |
+<%= link_to 'Back', deliverables_path %>

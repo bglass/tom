@@ -1,0 +1,13 @@
+# rails version >= 3
+
+bash
+
+
+rails new tom
+cd !$
+
+git init
+git add .
+git commit -m "Initial commit."
+
+rails generate controller Pages about

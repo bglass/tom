@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Activity:</b>
+  <%= @key_person.activity_id %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= @key_person.person_id %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @key_person.role %>
+</p>
+
+
+<%= link_to 'Edit', edit_key_person_path(@key_person) %> |
+<%= link_to 'Back', key_people_path %>

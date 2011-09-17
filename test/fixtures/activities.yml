@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  nickname: MyString
+  abstract: MyString
+  contract: MyString
+  funding_id: 1
+  funding_amount: 1
+  startdate_id: 1
+  enddate_id: 1
+  project_id: 1
+
+two:
+  title: MyString
+  nickname: MyString
+  abstract: MyString
+  contract: MyString
+  funding_id: 1
+  funding_amount: 1
+  startdate_id: 1
+  enddate_id: 1
+  project_id: 1

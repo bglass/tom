@@ -1,0 +1,29 @@
+<h1>Listing entities</h1>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entities.each do |entity| %>
+  <tr>
+    <td><%= entity.company %></td>
+    <td><%= entity.city %></td>
+    <td><%= entity.country %></td>
+    <td><%= entity.url %></td>
+    <td><%= link_to 'Show', entity %></td>
+    <td><%= link_to 'Edit', edit_entity_path(entity) %></td>
+    <td><%= link_to 'Destroy', entity, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entity', new_entity_path %>
