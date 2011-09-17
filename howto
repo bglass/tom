@@ -33,7 +33,7 @@ rails generate scaffold Technology  entity_id:integer type:string size:float nam
 rails generate scaffold Entity 	    name:string description:string city:string country:string url:string
 rails generate scaffold Stamp	    planned:date estimated:date actual:date
 
-
+# do you see me?
 # rails generate scaffold Foundry     name:string description:string location:string url_id:string
 #rails generate scaffold Changenote  title:string number:integer activity_id:integer status:string funding_id:integer amount:integer
 #rails generate scaffold Value 	 key:string value:string
