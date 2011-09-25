@@ -1,51 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @activity.title %>
-</p>
+<%= showline("Nickname", @activity.nickname, "h1") =%>
+<%= showline("Title",    @activity.title, "h2") =%>
+<%= showline("Contract", @activity.contract) =%>
+<%= showline("Amount",   @activity.funding_amount.to_s + " €") =%>
 
-<p>
-  <b>Nickname:</b>
-  <%= @activity.nickname %>
-</p>
+<%= @activity.funding ? 
+    showline("Funding",  @activity.funding.title, "", @activity.funding) : NIL =%>
+<%= showline("Abstract", @activity.abstract) =%>
 
-<p>
-  <b>Abstract:</b>
-  <%= @activity.abstract %>
-</p>
 
-<p>
-  <b>Contract:</b>
-  <%= @activity.contract %>
-</p>
+<%= @activity.startdate ? 
+    showline("Start", @activity.startdate.planned) : NIL  =%>
 
-<p>
-  <b>Funding:</b>
-  <%= @activity.funding_id %>
-</p>
+<%= @activity.enddate ? 
+    showline("End",   @activity.enddate.planned)   : NIL  =%>
 
-<p>
-  <b>Funding amount:</b>
-  <%= @activity.funding_amount %>
-</p>
+<%= @activity.project ? 
+    showline("Project",   @activity.project.title, "", @activity.project)   : NIL  =%>
 
-<p>
-  <b>Startdate:</b>
-  <%= @activity.startdate_id %>
-</p>
 
-<p>
-  <b>Enddate:</b>
-  <%= @activity.enddate_id %>
-</p>
+<%= showlist("milestones",   @activity.Milestones) =%>
+<%= showlist("deliverables", @activity.Deliverables) =%>
+<%= showlist("meetings", @activity.Meetings) =%>
+<%= showlist("components", @activity.Components) =%>
 
-<p>
-  <b>Project:</b>
-  <%= @activity.project_id %>
-</p>
-
+<% # Key_Person <> People %>
+<% # Contractor <> Entity %>
+<% # Comment (polymorph) %>
+<% # Reference (polymorphic) %>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %> |
 <%= link_to 'Show All', activities_path %>
+

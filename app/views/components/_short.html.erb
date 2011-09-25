@@ -1,0 +1,14 @@
+<% unless @object.empty? %>
+<% @components = @object %>
+
+<p>
+  <b>Components:</b>
+  <ul>
+    <% @components.each do |component| %>
+    <li> 
+      <%= link_to component.title, component =%>
+      <% end %>
+  </ul>
+</p>
+
+<% end %>

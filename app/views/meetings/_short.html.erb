@@ -1,0 +1,17 @@
+<% unless @object.empty? %>
+<% @meetings = @object %>
+
+<p>
+  <b>Meetings:</b>
+    <table>
+      <tr><th> Title </th><th> Venue </th> </tr>
+      <% @meetings.each do |meeting| %>
+      <tr>
+	<td><%= meeting.title =%></td>
+	<td><%= meeting.venue =%></td>
+      </tr>
+      <% end %>
+    </table>
+</p>
+
+<% end %>

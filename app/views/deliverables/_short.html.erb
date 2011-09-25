@@ -1,0 +1,15 @@
+<% unless @object.empty? %>
+<% @deliverables = @object %>
+
+<p>
+  <b>Deliverables:</b>
+  <ul>
+    <% @deliverables.each do |deliverable| %>
+    <li> 
+      D <%= deliverable.number =%>:
+      <%= link_to deliverable.title, deliverable =%>
+      <% end %>
+  </ul>
+</p>
+
+<% end %>

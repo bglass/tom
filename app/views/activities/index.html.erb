@@ -17,10 +17,22 @@
       <td><%= link_to activity.nickname, activity %></td>
       <td><%= activity.contract %></td>
       <td><%= activity.title %></td>
-      <td><%= activity.funding_id %></td>
+      <td>
+	<% if activity.funding %>
+	<%= activity.funding.title  %>
+	<% end %>
+      </td>
       <td><%= activity.funding_amount %></td>
-      <td><%= activity.startdate_id %></td>
-      <td><%= activity.enddate_id %></td>
+      <td>
+	<% if activity.startdate %>
+	<%= activity.startdate.planned %>
+	<% end %>
+      </td>
+      <td>
+	<% if activity.enddate %>
+	<%= activity.enddate.planned %>
+	<% end %>
+      </td>
     </tr>
     <% end %>
   <% end %>
