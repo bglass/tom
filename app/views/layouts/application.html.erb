@@ -2,16 +2,37 @@
 <html>
 <head>
   <title>Tom</title>
-  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    "blueprint/screen", :media => 'screen' %>
+  <%= stylesheet_link_tag    "blueprint/screen", :media => 'print' %>
+  <%= stylesheet_link_tag    "application" %>
 </head>
 <body>
   <div class="container">
+    <header>
+      <nav class="round">
+	<ul>
+	  <li><%= link_to "Home", '#' %></li>
+	</ul>
+      </nav>
+    </header>
+    </div>
 
-    <%= yield %>
+  <div class="container">
 
-    <%= debug(params) if Rails.env.development? %>
+    <section class="round">
+      
+      <%= yield %>
+
+    </section>
+    </div>
+
+   <div class="container">
+   
+    <section class="round">
+      <%= debug(params) if Rails.env.development? %>
+    </section>
 
   </div>
 

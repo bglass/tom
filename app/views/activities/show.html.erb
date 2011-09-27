@@ -7,7 +7,7 @@
 
 <%= @activity.funding ? 
     showline("Funding",  @activity.funding.title, "", @activity.funding) : NIL =%>
-<%= showline("Abstract", @activity.abstract) =%>
+<%= showline("Abstract", @activity.abstract) =%>bl
 
 
 <%= @activity.startdate ? 
@@ -30,7 +30,12 @@
 <% # Comment (polymorph) %>
 <% # Reference (polymorphic) %>
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %> |
-<%= link_to 'Show All', activities_path %>
+<nav class="round">
+  <ul>
+    <li><%= link_to 'Edit', edit_activity_path(@activity) %> |
+    <li><%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %> |
+    <li><%= link_to 'Show All', activities_path %>
+  </ul>
+</nav>
+
 

@@ -1,3 +1,9 @@
+<nav class="round">
+  <ul>
+    <li><%= link_to 'New Activity', new_activity_path %>
+  </ul>
+</nav>
+
 <h1>Listing activities</h1>
 
 <table>
@@ -37,7 +43,6 @@
     <% end %>
   <% end %>
 </table>
+<% render "layouts/section.end" %>
 
-<br />
 
-<%= link_to 'New Activity', new_activity_path %>
