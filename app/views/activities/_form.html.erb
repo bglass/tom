@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :abstract %><br />
-    <%= f.text_field :abstract %>
+    <%= f.text_area :abstract %>
   </div>
   <div class="field">
     <%= f.label :contract %><br />
@@ -29,23 +29,23 @@
   </div>
   <div class="field">
     <%= f.label :funding_id %><br />
-    <%= f.number_field :funding_id %>
+    <%= f.collection_select :funding_id, Funding.all, :id, :title %>
   </div>
   <div class="field">
     <%= f.label :funding_amount %><br />
     <%= f.number_field :funding_amount %>
   </div>
   <div class="field">
-    <%= f.label :startdate_id %><br />
+    <%= f.label "Start Date" %><br />
     <%= f.number_field :startdate_id %>
   </div>
   <div class="field">
-    <%= f.label :enddate_id %><br />
+    <%= f.label "End Date" %><br />
     <%= f.number_field :enddate_id %>
   </div>
   <div class="field">
     <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
+    <%= f.collection_select :project_id, Project.all, :id, :title %>
   </div>
   <div class="actions">
     <%= f.submit %>

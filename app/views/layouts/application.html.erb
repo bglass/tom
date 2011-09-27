@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tom</title>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    "blueprint/screen", :media => 'screen' %>
-  <%= stylesheet_link_tag    "blueprint/screen", :media => 'print' %>
-  <%= stylesheet_link_tag    "application" %>
-</head>
-<body>
-  <div class="container">
+  <head>
+    <title>Tom</title>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    "blueprint/screen", :media => 'screen' %>
+    <%= stylesheet_link_tag    "blueprint/screen", :media => 'print' %>
+    <%= stylesheet_link_tag    "application" %>
+  </head>
+  <body>
     <header>
-      <nav class="round">
-	<ul>
-	  <li><%= link_to "Home", '#' %></li>
-	</ul>
-      </nav>
+      <div class="container">
+	<nav id="navigation" class="round">
+	  <ul>
+	    <li><%= link_to "Home", '#' %></li>
+	    <li><%= link_to "All Tables", "/pages/tables" %></li>
+	    <li><%= link_to "Log Out", '#' %></li>
+	  </ul>
+	</nav>
+      </div>
     </header>
+    
+    <div class="container">
+      <section class="round">
+	<%= yield %>
+      </section>
     </div>
-
-  <div class="container">
-
-    <section class="round">
-      
-      <%= yield %>
-
-    </section>
+    
+    
+    <div class="container">
+      <section class="round">
+	<%= debug(params) if Rails.env.development? %>
+      </section>
     </div>
-
-   <div class="container">
-   
-    <section class="round">
-      <%= debug(params) if Rails.env.development? %>
-    </section>
-
-  </div>
-
-</body>
+    
+  </body>
 </html>

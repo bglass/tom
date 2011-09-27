@@ -1,7 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
+
+<nav class="round">
+  <ul>
+    <li><%= link_to 'Edit', edit_activity_path(@activity) %> |
+    <li><%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %> |
+    <li><%= link_to 'All Activities', activities_path %>
+  </ul>
+</nav>
 
 <%= showline("Nickname", @activity.nickname, "h1") =%>
 <%= showline("Title",    @activity.title, "h2") =%>
+
+<p>
 <%= showline("Contract", @activity.contract) =%>
 <%= showline("Amount",   @activity.funding_amount.to_s + " €") =%>
 
@@ -18,7 +28,7 @@
 
 <%= @activity.project ? 
     showline("Project",   @activity.project.title, "", @activity.project)   : NIL  =%>
-
+</p>
 
 <%= showlist("milestones",   @activity.Milestones) =%>
 <%= showlist("deliverables", @activity.Deliverables) =%>
@@ -30,12 +40,5 @@
 <% # Comment (polymorph) %>
 <% # Reference (polymorphic) %>
 
-<nav class="round">
-  <ul>
-    <li><%= link_to 'Edit', edit_activity_path(@activity) %> |
-    <li><%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %> |
-    <li><%= link_to 'Show All', activities_path %>
-  </ul>
-</nav>
 
 

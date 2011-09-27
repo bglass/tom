@@ -22,11 +22,11 @@
 }
 
 body {
-    background:  #eee; 
+    background:  #f2f4f9;
 }
 
 header {
-    padding-top: 20px;
+    padding-top: 7px;
 }
 
 header img {
@@ -55,16 +55,6 @@ a:visited {
     color: #069;
 }
 
-nav {
-    float: right;
-}
-
-nav {
-    background-color: white;
-    padding: 0 0.7em;
-    white-space: nowrap;
-}
-
 nav ul {
     margin: 0;
     padding: 0;
@@ -81,10 +71,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-nav ul li a:visited {
-    color: #09c;
-}
-
 nav ul li a:hover {
     text-decoration: underline;
 }
@@ -94,3 +80,26 @@ nav ul li a:hover {
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
+
+#navigation {
+    float: right;
+    background-color: white;
+    padding: 0 0.7em;
+    white-space: nowrap;
+}
+
+nav ul li a:visited {
+    color: #09c;
+}
+
+
+#actions{
+    background-color: #f2f4f9;
+    float: right;
+}
+
+#notice{
+    color: purple;
+    float: right;
+}
+
