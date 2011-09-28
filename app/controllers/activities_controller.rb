@@ -80,4 +80,22 @@ class ActivitiesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+def expand
+  render :update do |page|
+    page['ctrlbutton'].replace_html :partial => 'collapse'
+    page['hiddendiv'].show
+  end
+end
+  
+def collapse
+  render :update do |page|
+    page['ctrlbutton'].replace_html :partial => 'expand'
+    page['hiddendiv'].hide
+  end
+end
+
+
+
+
 end

@@ -17,7 +17,18 @@
 
 <%= @activity.funding ? 
     showline("Funding",  @activity.funding.title, "", @activity.funding) : NIL =%>
-<%= showline("Abstract", @activity.abstract) =%>bl
+
+
+<div id="ctrlbutton" class="expand">
+  <%= render :partial => 'expand' %>
+  <p>Bye Bye</p>
+</div>
+<div id="hiddendiv" style="display:none">
+  <p>Hello</p>
+</div>
+
+
+<%= showline("Abstract", @activity.abstract) =%>
 
 
 <%= @activity.startdate ? 
