@@ -1,0 +1,16 @@
+<% unless @object.empty? %>
+<% @phases = @object %>
+
+<hr>
+
+<p>
+  <b>Phases:</b>
+  <ul>
+    <% @phases.each do |phase| %>
+    <li> 
+      <%= link_to phase.name, phase =%>
+      <% end %>
+  </ul>
+</p>
+
+<% end %>

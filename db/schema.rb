@@ -11,24 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110917144207) do
+ActiveRecord::Schema.define(:version => 20110928213338) do
+
+  create_table "actions", :force => true do |t|
+    t.integer  "activity_id"
+    t.integer  "assignee_id"
+    t.string   "title"
+    t.date     "due"
+    t.date     "closed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "activities", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "activity_id"
+    t.integer  "funding_id"
     t.string   "title"
     t.string   "nickname"
     t.string   "abstract"
     t.string   "contract"
-    t.integer  "funding_id"
     t.integer  "funding_amount"
-    t.integer  "startdate_id"
-    t.integer  "enddate_id"
-    t.integer  "project_id"
+    t.date     "start"
+    t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "categorytype"
+    t.string   "name"
     t.string   "abstract"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,11 +58,9 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
     t.integer  "category_id"
     t.string   "abstract"
     t.integer  "activity_id"
-    t.float    "sizex"
-    t.float    "sizey"
     t.integer  "technology_id"
     t.string   "status"
-    t.string   "qlevel"
+    t.integer  "qlevel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
   create_table "contractors", :force => true do |t|
     t.integer  "activity_id"
     t.integer  "entity_id"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
   create_table "deliverables", :force => true do |t|
     t.string   "title"
     t.string   "number"
-    t.integer  "activity_id"
     t.integer  "milestone_id"
     t.string   "status"
     t.boolean  "accepted"
@@ -75,7 +84,8 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
   end
 
   create_table "entities", :force => true do |t|
-    t.string   "company"
+    t.string   "name"
+    t.string   "description"
     t.string   "city"
     t.string   "country"
     t.string   "url"
@@ -99,9 +109,20 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
     t.datetime "updated_at"
   end
 
+  create_table "infos", :force => true do |t|
+    t.integer  "informable_id"
+    t.string   "informable_type"
+    t.string   "title"
+    t.string   "text"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "key_people", :force => true do |t|
-    t.integer  "activity_id"
     t.integer  "person_id"
+    t.integer  "personable_id"
+    t.string   "personable_type"
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -110,9 +131,6 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
   create_table "meetings", :force => true do |t|
     t.string   "title"
     t.string   "venue"
-    t.integer  "stamp_id"
-    t.integer  "number"
-    t.integer  "activity_id"
     t.integer  "milestone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -120,10 +138,16 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
 
   create_table "milestones", :force => true do |t|
     t.string   "title"
-    t.integer  "activity_id"
-    t.integer  "ccn_id"
+    t.integer  "phase_id"
     t.boolean  "achieved"
-    t.integer  "stamp_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "monthly_reports", :force => true do |t|
+    t.integer  "activity_id"
+    t.string   "text"
+    t.boolean  "final"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -133,7 +157,6 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
     t.integer  "amount"
     t.boolean  "invoiced"
     t.boolean  "paid"
-    t.integer  "stamp_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -147,10 +170,24 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
     t.datetime "updated_at"
   end
 
+  create_table "phases", :force => true do |t|
+    t.string   "name"
+    t.integer  "activity_id"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.string   "abstract"
-    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "qlevels", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -164,6 +201,8 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
   end
 
   create_table "stamps", :force => true do |t|
+    t.integer  "stampable_id"
+    t.string   "stampable_type"
     t.date     "planned"
     t.date     "estimated"
     t.date     "actual"
@@ -172,7 +211,7 @@ ActiveRecord::Schema.define(:version => 20110917144207) do
   end
 
   create_table "technologies", :force => true do |t|
-    t.integer  "foundry_id"
+    t.integer  "entity_id"
     t.string   "type"
     t.float    "size"
     t.string   "name"

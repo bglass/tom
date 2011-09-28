@@ -20,19 +20,15 @@
 <%= showline("Abstract", @activity.abstract) =%>bl
 
 
-<%= @activity.startdate ? 
-    showline("Start", @activity.startdate.planned) : NIL  =%>
+<%= showline("Start", @activity.start) %>
 
-<%= @activity.enddate ? 
-    showline("End",   @activity.enddate.planned)   : NIL  =%>
+<%= showline("Duration",  @activity.duration) %>
 
 <%= @activity.project ? 
     showline("Project",   @activity.project.title, "", @activity.project)   : NIL  =%>
 </p>
 
-<%= showlist("milestones",   @activity.Milestones) =%>
-<%= showlist("deliverables", @activity.Deliverables) =%>
-<%= showlist("meetings", @activity.Meetings) =%>
+<%= showlist("phases",    @activity.Phases) =%>
 <%= showlist("components", @activity.Components) =%>
 
 <% # Key_Person <> People %>

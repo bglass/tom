@@ -1,6 +1,8 @@
 Tom::Application.routes.draw do
 
 
+  resources :phases
+
   get "pages/tables"
 
   resources :stamps
@@ -43,7 +45,7 @@ Tom::Application.routes.draw do
 
   get "pages/about"
 
-  resources :activities, :key_people, :deliverables
+  resources :activities, :key_people, :deliverables, :phases
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

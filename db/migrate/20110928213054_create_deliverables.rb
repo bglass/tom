@@ -3,7 +3,6 @@ class CreateDeliverables < ActiveRecord::Migration
     create_table :deliverables do |t|
       t.string :title
       t.string :number
-      t.integer :activity_id
       t.integer :milestone_id
       t.string :status
       t.boolean :accepted

@@ -13,32 +13,56 @@ git commit -m "Initial commit."
 rails generate controller Pages about
 rails generate controller Pages tables
 
-rails generate scaffold Activity title:string nickname:string abstract:string contract:string funding_id:integer funding_amount:integer startdate_id:integer enddate_id:integer project_id:integer
 
-rails generate scaffold  KeyPerson   activity_id:integer person_id:integer role:string
-rails generate scaffold  Deliverable title:string number:string activity_id:integer milestone_id:integer status:string accepted:boolean
-rails generate scaffold Meeting     title:string venue:string stamp_id:integer activity_id:integer milestone_id:integer # number:integer 
-rails generate scaffold Milestone   title:string activity_id:integer achieved:boolean stamp_id:integer   # ccn_id:integer 
-rails generate scaffold Payment     milestone_id:integer amount:integer invoiced:boolean paid:boolean stamp_id:integer
-rails generate scaffold Contractor  activity_id:integer entity_id:integer
-rails generate scaffold Comment     activity_id:integer title:string text:string
-rails generate scaffold Reference   activity_id:integer title:string url:string
-rails generate scaffold Project     title:string abstract:string person_id:integer
-rails generate scaffold Funding     title:string abstract:string
-rails generate scaffold Person      first:string last:string section:string role:string
-rails generate scaffold Component   title:string category_id:integer abstract:string activity_id:integer technology_id:integer status:string qlevel:string # sizex:float sizey:float 
+method=model   # model | scaffold
 
-rails generate scaffold Category    categorytype:string abstract:string
-rails generate scaffold Technology  entity_id:integer type:string size:float name:string
-rails generate scaffold Entity 	    name:string description:string city:string country:string url:string
-rails generate scaffold Stamp	    planned:date estimated:date actual:date
+rails destroy model Activity
+rails destroy model Funding       
+rails destroy model Project       
+rails destroy model KeyPerson     
+rails destroy model Person        
+rails destroy model Entity        
+rails destroy model Contractor    
+rails destroy model Category      
+rails destroy model Component     
+rails destroy model Qlevel        
+rails destroy model Technology    
+rails destroy model Phase         
+rails destroy model Milestone     
+rails destroy model Deliverable   
+rails destroy model Payment       
+rails destroy model Meeting       
+rails destroy model Stamp         
+rails destroy model Info          
+rails destroy model MonthlyReport 
+rails destroy model Action        
 
-# do you see me?
-# rails generate scaffold Foundry     name:string description:string location:string url_id:string
-#rails generate scaffold Changenote  title:string number:integer activity_id:integer status:string funding_id:integer amount:integer
-#rails generate scaffold Value 	 key:string value:string
 
 
+
+rails generate $method Activity project_id:integer activity_id:integer funding_id:integer  \
+      	       		title:string nickname:string abstract:string contract:string funding_amount:integer start:date duration:integer
+rails generate $method Funding       title:string abstract:string
+rails generate $method Project       title:string abstract:string 
+rails generate $method KeyPerson     person_id:integer personable_id:integer personable_type:string role:string 
+rails generate $method Person        first:string last:string section:string role:string
+rails generate $method Entity 	     name:string description:string city:string country:string url:string
+rails generate $method Contractor    activity_id:integer entity_id:integer role:string
+rails generate $method Category      name:string abstract:string
+rails generate $method Component     title:string category_id:integer abstract:string activity_id:integer technology_id:integer status:string qlevel_id:integer
+rails generate $method Qlevel        name:string description:string
+rails generate $method Technology    entity_id:integer type:string size:float name:string
+rails generate $method Phase	     name:string activity_id:integer description:string
+rails generate $method Milestone     title:string phase_id:integer achieved:boolean
+rails generate $method Deliverable   title:string number:string milestone_id:integer status:string accepted:boolean
+rails generate $method Payment       milestone_id:integer amount:integer invoiced:boolean paid:boolean
+rails generate $method Meeting       title:string venue:string milestone_id:integer
+rails generate $method Stamp	     stampable_id:integer stampable_type:string planned:date estimated:date actual:date
+rails generate $method Info	     informable_id:integer informable_type:string title:string text:string url:string
+rails generate $method MonthlyReport activity_id:integer text:string final:boolean
+rails generate $method Action	     activity_id:integer assignee_id:integer title:string due:date closed:date
+
+rails generate controller Phase
 
 
 

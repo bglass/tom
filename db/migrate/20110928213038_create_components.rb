@@ -5,11 +5,9 @@ class CreateComponents < ActiveRecord::Migration
       t.integer :category_id
       t.string :abstract
       t.integer :activity_id
-      t.float :sizex
-      t.float :sizey
       t.integer :technology_id
       t.string :status
-      t.string :qlevel
+      t.integer :qlevel_id
 
       t.timestamps
     end

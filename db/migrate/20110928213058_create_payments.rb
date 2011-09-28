@@ -5,7 +5,6 @@ class CreatePayments < ActiveRecord::Migration
       t.integer :amount
       t.boolean :invoiced
       t.boolean :paid
-      t.integer :stamp_id
 
       t.timestamps
     end

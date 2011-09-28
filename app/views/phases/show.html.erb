@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @phase.name %>
+</p>
+
+<p>
+  <b>Activity:</b>
+  <%= @phase.activity_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @phase.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_phase_path(@phase) %> |
+<%= link_to 'Back', phases_path %>

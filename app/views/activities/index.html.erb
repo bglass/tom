@@ -30,13 +30,9 @@
       </td>
       <td><%= activity.funding_amount %></td>
       <td>
-	<% if activity.startdate %>
-	<%= activity.startdate.planned %>
-	<% end %>
+	<%= activity.start %>
       <br/>
-	<% if activity.enddate %>
-	<%= activity.enddate.planned %>
-	<% end %>
+	<%= activity.duration %>
       </td>
     </tr>
     <% end %>

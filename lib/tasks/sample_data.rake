@@ -18,23 +18,22 @@ end
                         :contract       => "40000"+rand(100000).to_s,
                         :funding_id     => rand(100),
                         :funding_amount =>  rand(1000).to_s + "0"*rand(3) + "00",
-                        :startdate_id   => rand(100),
-                        :enddate_id     => rand(100),
+                        :start          => time_rand,
+                        :duration       => rand(24),
                         :project_id     => rand(100) )                       
     end
 
-    # KeyPerson
-    100.times do |n|
-      KeyPerson.create!( :activity_id   => rand(100),
-                         :person_id     => rand(100),
-                         :role          => Faker::Lorem.words(2).join  )
-    end
+#    # KeyPerson
+#    100.times do |n|
+#      KeyPerson.create!( :activity_id   => rand(100),
+#                         :person_id     => rand(100),
+#                         :role          => Faker::Lorem.words(2).join  )
+#    end
 
     # Deliverable
     100.times do |n|
       Deliverable.create!( :title           => Faker::Lorem.sentences(1).join,        
                            :number          => (rand(13)+1).to_s + '.' + (rand(20)+1).to_s,
-                           :activity_id     => rand(100),
                            :milestone_id    => rand(100),
                            :status          => Faker::Lorem.words(2).join,
                            :accepted        =>  rand(2) == 1 )
@@ -44,16 +43,13 @@ end
     100.times do |n|
       Meeting.create!( :title           => Faker::Lorem.words(2).join,
                        :venue           => Faker::Address.city,
-                       :stamp_id        => rand(100),
-                       :activity_id     => rand(100),
                        :milestone_id    => rand(100) )
     end
 
     # Milestone
     100.times do |n|
       Milestone.create!(  :title           => Faker::Lorem.words(2).join,
-                          :stamp_id        => rand(100),
-                          :activity_id     => rand(100),
+                          :phase_id        => rand(100),
                           :achieved        =>  rand(2) == 1 )
     end
 
@@ -61,7 +57,6 @@ end
     100.times do |n|
       Payment.create!(    :milestone_id    => rand(100),
                           :amount          => rand(1000000),
-                          :stamp_id        => rand(100),
                           :invoiced        =>  rand(2) == 1,
                           :paid            =>  rand(2) == 1 )
     end
@@ -69,28 +64,23 @@ end
     # Contractor
     100.times do |n|
       Contractor.create!( :activity_id     => rand(100),
-                          :entity_id       => rand(100) )
+                          :entity_id       => rand(100),
+                          :role            => Faker::Lorem.words(2).join  )
     end
 
-    # Comment
-    100.times do |n|
-      Comment.create!( :activity_id     => rand(100),
-                       :title           => Faker::Lorem.sentences(1).join, 
-                       :text           => Faker::Lorem.paragraphs(2).join )
-    end
+#    # Info
+#    100.times do |n|
+#      Info.create!( :activity_id     => rand(100),
+#                       :title           => Faker::Lorem.sentences(1).join, 
+#                       :text           => Faker::Lorem.paragraphs(2).join,
+#                       :url           => "http://"+Faker::Internet.domain_word+'.'+Faker::Internet.domain_name + '/' + (Faker::Lorem.words(rand(5)).join('/') ) )
+#    end
 
-    # Reference
-    100.times do |n|
-      Reference.create!(  :activity_id     => rand(100),
-                       :title           => Faker::Lorem.sentences(1).join, 
-                       :url           => "http://"+Faker::Internet.domain_word+'.'+Faker::Internet.domain_name + '/' + (Faker::Lorem.words(rand(5)).join('/') ) )
-    end
-
+ 
     # Project
     100.times do |n|
       Project.create!(  :title          => Faker::Lorem.sentences(1).join,
-                        :abstract       => Faker::Lorem.paragraphs(2).join,
-                        :person_id     => rand(100) )
+                        :abstract       => Faker::Lorem.paragraphs(2).join)
 
     end
 
@@ -118,44 +108,42 @@ end
                           :activity_id     => rand(100),
                           :technology_id     => rand(100),
                           :status          => Faker::Lorem.words(2).join,
-                          :qlevel          => Faker::Lorem.words(1).join )
+                          :qlevel_id       =>  rand(100 ) )
     end
 
     # Category
     100.times do |n|
-      Category.create!(   :categorytype     => Faker::Lorem.sentences(1).join,
+      Category.create!(   :name     => Faker::Lorem.sentences(1).join,
                           :abstract       => Faker::Lorem.paragraphs(1).join )
     end
 
     # Technology
     100.times do |n|
-      Technology.create!( :foundry_id     => rand(100),
+      Technology.create!( :entity_id     => rand(100),
                           :type           => Faker::Lorem.words(1).join,
                           :size         => rand(1000)/100,
                           :name     => Faker::Lorem.words(2).join )
     end
 
 
-## fix!
-##    # Entity
-##    100.times do |n|
-##      Entity.create!(  :name     => Faker::Company.name,
-##                       :description => Faker::Lorem.paragraphs(2).join,
-##                       :city        =>Faker::Address.city,
-##                       :country     =>Faker::Address.country,
-##                       :url      =>  "http://"+Faker::Internet.domain_word+'.'+Faker::Internet.domain_name + '/' + (Faker::Lorem.words(rand(5)).join('/') ) )
-##    end
+   # Entity
+   100.times do |n|
+     Entity.create!(  :name     => Faker::Company.name,
+                      :description => Faker::Lorem.paragraphs(2).join,
+                      :city        =>Faker::Address.city,
+                      :country     =>Faker::Address.country,
+                      :url      =>  "http://"+Faker::Internet.domain_word+'.'+Faker::Internet.domain_name + '/' + (Faker::Lorem.words(rand(5)).join('/') ) )
+   end
 
-    # Stamp
-    100.times do |n|
-          Stamp.create!( :planned   => time_rand,
-                         :estimated => time_rand,
-                         :actual    => time_rand) 
-    end
+#    # Stamp
+#    100.times do |n|
+#          Stamp.create!( :planned   => time_rand,
+#                         :estimated => time_rand,
+#                         :actual    => time_rand) 
+#    end
 
   end
 end
-
 
 
                        
