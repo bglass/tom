@@ -33,15 +33,19 @@
   </div>
   <div class="field">
     <%= f.label :funding_amount %><br />
-    <%= f.number_field :funding_amount %>
+    <%= f.number_field :funding_amount %> €
+  </div>
+<div class="field">
+    <%= f.label "Planned Start Date" %><br />
+    <%#= f.date_select :start %>
+
+    <%= f.text_field :start, :class => "date" %>
+
+
   </div>
   <div class="field">
-    <%= f.label "Start Date" %><br />
-    <%= f.number_field :startdate_id %>
-  </div>
-  <div class="field">
-    <%= f.label "End Date" %><br />
-    <%= f.number_field :enddate_id %>
+    <%= f.label "Duration" %><br />
+    <%= f.number_field :duration %>
   </div>
   <div class="field">
     <%= f.label :project_id %><br />

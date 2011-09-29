@@ -40,5 +40,4 @@ group :development do
   gem 'annotate', '2.4.0'
   gem 'faker'
   gem 'lorem'
-
 end

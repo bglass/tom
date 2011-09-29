@@ -28,8 +28,12 @@
     showline("Project",   @activity.project.title, "", @activity.project)   : NIL  =%>
 </p>
 
-<%= showlist("phases",    @activity.Phases) =%>
+<hr><p>
+<h3>Activity Structure</h3>
+  <%= showlist("phases",    @activity.Phases) =%>
+<p/><hr><p>
 <%= showlist("components", @activity.Components) =%>
+</p>
 
 <% # Key_Person <> People %>
 <% # Contractor <> Entity %>

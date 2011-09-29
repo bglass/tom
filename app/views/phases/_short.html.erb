@@ -1,10 +1,6 @@
 <% unless @object.empty? %>
 <% @phases = @object %>
 
-<hr>
-
-<p>
-  <b>Phases:</b>
   <ul>
     <% @phases.each do |phase| %>
     <li> 
@@ -12,6 +8,5 @@
       <%= showlist("milestones", phase.milestones) %>
       <% end %>
   </ul>
-</p>
 
 <% end %>
