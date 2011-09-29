@@ -1,31 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
-<p>
-  <b>Title:</b>
-  <%= @milestone.title %>
-</p>
-
-<%= @milestone.mshelp =%>
-
-<p>
-  <b>Activity:</b>
-  <%= @milestone.activity_id %>
-</p>
-
-<p>
-  <b>Ccn:</b>
-  <%= @milestone.ccn_id %>
-</p>
-
-<p>
-  <b>Achieved:</b>
-  <%= @milestone.achieved %>
-</p>
-
-<p>
-  <b>Stamp:</b>
-  <%= @milestone.stamp_id %>
-</p>
+<%= showline("Title", @milestone.title) =%>
+<%= showline("Phase", @milestone.phase.name) =%>
+<%= showline("Achieved", @milestone.achieved) =%>
 
 
 <%= link_to 'Edit', edit_milestone_path(@milestone) %> |

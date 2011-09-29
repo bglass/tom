@@ -1,16 +1,12 @@
 <% unless @object.empty? %>
 <% @milestones = @object %>
 
-<hr>
-
-<p>
-  <b>Milestones:</b>
   <ul>
     <% @milestones.each do |milestone| %>
     <li> 
       <%= link_to milestone.title, milestone =%>
+      <%= showlist("deliverables", milestone.deliverables) %>
       <% end %>
   </ul>
-</p>
 
 <% end %>

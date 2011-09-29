@@ -8,7 +8,8 @@
   <ul>
     <% @phases.each do |phase| %>
     <li> 
-      <%= link_to phase.name, phase =%>
+      <%= link_to phase.name, phase %>
+      <%= showlist("milestones", phase.milestones) %>
       <% end %>
   </ul>
 </p>

@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Activity</th>
+    <th>Phase</th>
     <th>Ccn</th>
     <th>Achieved</th>
     <th>Stamp</th>
@@ -15,10 +15,8 @@
 <% @milestones.each do |milestone| %>
   <tr>
     <td><%= milestone.title %></td>
-    <td><%= milestone.activity_id %></td>
-    <td><%= milestone.ccn_id %></td>
+    <td><%= milestone.phase_id %></td>
     <td><%= milestone.achieved %></td>
-    <td><%= milestone.stamp_id %></td>
     <td><%= link_to 'Show', milestone %></td>
     <td><%= link_to 'Edit', edit_milestone_path(milestone) %></td>
     <td><%= link_to 'Destroy', milestone, confirm: 'Are you sure?', method: :delete %></td>
