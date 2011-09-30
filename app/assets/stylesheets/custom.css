@@ -1,22 +1,3 @@
-#h1 {
-    text-align: center;
-    font-size:  200%
-}
-
-#h2 {
-    text-align: center;
-    font-size:  170%
-}
-
-#h3 {
-    text-align: center;
-    font-size:  140%
-}
-
-#ctr {
-    text-align: center;
-}
-
 .container {
     width:  710px; 
 }
@@ -39,6 +20,8 @@ section {
     font-size: 120%;
     padding: 20px;
     background: #fff;
+    border: solid 1px;
+    border-color: #c0c0c0;
 }
 
 a {
@@ -53,6 +36,21 @@ a:hover {
 
 a:visited {
     color: #069;
+}
+
+.round {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+nav {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    border: solid 1px;
+    border-color: #c0c0c0;
 }
 
 nav ul {
@@ -75,10 +73,8 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-.round {
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+nav ul li a:visited {
+    color: #09c;
 }
 
 #navigation {
@@ -88,14 +84,13 @@ nav ul li a:hover {
     white-space: nowrap;
 }
 
-nav ul li a:visited {
-    color: #09c;
-}
 
-
-#actions{
+#context{
     background-color: #f2f4f9;
-    float: right;
+    background-color: white;
+    float: left;
+    padding: 0 0.7em;
+    white-space: nowrap;
 }
 
 #notice{
@@ -103,3 +98,24 @@ nav ul li a:visited {
     float: right;
 }
 
+#title ul li {
+    list-style-type: none;
+    text-align: center;
+    font-size: 180%
+}
+
+#contract {
+    background-color: white;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    border: solid 1px;
+    border-color: #c0c0c0;
+    float: right;
+    padding: 0.7em 0.7em;
+}
+
+#contract ul {
+    list-style-type:  none
+}

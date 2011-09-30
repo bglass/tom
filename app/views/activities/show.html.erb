@@ -1,39 +1,64 @@
 <div id="notice"><%= notice %></div>
 
-<nav class="round">
+<div class="container">
+  <nav id="context">
+    <ul>
+      <li><%= link_to 'Edit', edit_activity_path(@activity) %>
+      <li><%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %>
+      <li><%= link_to 'All Activities', activities_path %>
+    </ul>
+  </nav>
+</div>
+
+<div class="container" id="title">
   <ul>
-    <li><%= link_to 'Edit', edit_activity_path(@activity) %> |
-    <li><%= link_to 'Destroy', @activity, confirm: 'Are you sure?', method: :delete %> |
-    <li><%= link_to 'All Activities', activities_path %>
+    <li> <%= @activity.nickname %>
+    <li> <%= @activity.title %>
   </ul>
-</nav>
+</div>
 
-<%= showline("Nickname", @activity.nickname, "h1") =%>
-<%= showline("Title",    @activity.title, "h2") =%>
+  <div id="contract">
+    <ul>
+      <li> <%= showline("Contract", @activity.contract) =%>
+      <li>   <%= showline("Amount",   @activity.funding_amount.to_s + " €") =%>
+      <li>   <%= @activity.funding ? 
+		 showline("Funding",  @activity.funding.title, "", @activity.funding) : NIL =%>
+      <li>   <%= showline("Start", @activity.start) %>
+      <li>   <%= showline("Duration", pluralize(@activity.duration, "month") ) %>
+    </ul>
+  </div>
 
-<p>
-<%= showline("Contract", @activity.contract) =%>
-<%= showline("Amount",   @activity.funding_amount.to_s + " €") =%>
-
-<%= @activity.funding ? 
-    showline("Funding",  @activity.funding.title, "", @activity.funding) : NIL =%>
 <%= showline("Abstract", @activity.abstract) =%>bl
-
-
-<%= showline("Start", @activity.start) %>
-
-<%= showline("Duration",  @activity.duration) %>
 
 <%= @activity.project ? 
     showline("Project",   @activity.project.title, "", @activity.project)   : NIL  =%>
 </p>
 
-<hr><p>
-<h3>Activity Structure</h3>
+<hr>
+  <div class="container">
+    <nav id="context">
+      <ul>      Edit:
+	<li><%= link_to "Phases", "#" %>
+	<li><%= link_to "Milestones",  "#" %>
+	<li><%= link_to "Deliverables" , "#" %>
+	<li><%= link_to "Payments",  "#" %>
+      </ul>
+    </nav>
+  </div>
+
+<% if @activity.Phases.any? %>
+<p>
+  <h3>Activity Structure</h3>
+  
   <%= showlist("phases",    @activity.Phases) =%>
-<p/><hr><p>
-<%= showlist("components", @activity.Components) =%>
+<p/>
+<% end %>
+
+<% if @activity.Components.any? %>
+<hr><p>
+  <%= showlist("components", @activity.Components) =%>
 </p>
+<% end %>
 
 <% # Key_Person <> People %>
 <% # Contractor <> Entity %>
