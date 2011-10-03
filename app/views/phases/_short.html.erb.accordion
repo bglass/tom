@@ -1,0 +1,9 @@
+<% unless @object.empty? %>
+<% @phases = @object %>
+
+<div id="accordion">
+  <% @phases.each do |phase| %>
+  <h3><a href="#"><%= link_to phase.name, phase %></a></h3>
+  <div><%= showlist("milestones", phase.milestones) %></div>
+  <% end %>
+</div>

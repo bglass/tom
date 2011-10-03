@@ -1,12 +1,11 @@
 <% unless @object.empty? %>
 <% @phases = @object %>
 
-  <ul>
+<div id="accordion">
     <% @phases.each do |phase| %>
-    <li> 
-      <%= link_to phase.name, phase %>
-      <%= showlist("milestones", phase.milestones) %>
+      <h3><%= link_to phase.name, phase %></h3>
+      <div><%= showlist("milestones", phase.milestones) %></div>
       <% end %>
-  </ul>
+</div>
 
 <% end %>

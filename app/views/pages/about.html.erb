@@ -16,3 +16,21 @@
 
 
 
+<a href='javascript: toggle()'>toggle</a>
+<div id='div1' style='display:none'>
+Don't display me
+</div>
+
+<script>
+function toggle(){
+	var div1 = document.getElementById('div1')
+	if (div1.style.display == 'none') {
+		div1.style.display = 'block'
+	} else {
+		div1.style.display = 'none'
+	}
+}
+</script>
+
+
+
